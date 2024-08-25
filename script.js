@@ -53,14 +53,14 @@ function createIconItem(url, label, favicon) {
     saveIcons(icons);
   });
 
+  // Add click event to open URL in a new tab
+  iconItem.addEventListener('click', () => {
+    window.location.href = url;
+  });
+
   iconItem.appendChild(img);
   iconItem.appendChild(caption);
   iconItem.appendChild(removeButton);
-
-  // Add click event to open URL in a new tab
-  iconItem.addEventListener('click', () => {
-    window.open(url, '_blank');
-  });
 
   return iconItem;
 }
@@ -121,5 +121,6 @@ loadBackground();
 
 // Toggle container visibility
 toggleContainerButton.addEventListener('click', () => {
-  container.style.display = container.style.display === 'none' || container.style.display === '' ? 'flex' : 'none';
+  container.style.display = container.style.display === 'none' || container.style.display === '' ? 'block' : 'none';
 });
+
