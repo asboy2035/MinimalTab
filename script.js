@@ -55,7 +55,9 @@ function createIconItem(url, label, favicon) {
 
   // Add click event to open URL in a new tab
   iconItem.addEventListener('click', () => {
-    window.location.href = url;
+    // Ensure the URL is absolute
+    const fullUrl = url.startsWith('http://') || url.startsWith('https://') ? url : `http://${url}`;
+    window.open(fullUrl, '_blank');
   });
 
   iconItem.appendChild(img);
